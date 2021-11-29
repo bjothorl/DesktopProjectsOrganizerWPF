@@ -51,6 +51,7 @@ namespace DesktopProjectsOrganizerWPF
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalAlignment = System.Windows.VerticalAlignment.Top,
                 Height = 35,
+                Margin = new Thickness { Top = 5 },
             };
 
             projectButtonBorder = new Rectangle()

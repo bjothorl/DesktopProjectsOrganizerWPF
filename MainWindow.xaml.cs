@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace DesktopProjectsOrganizerWPF
 {
@@ -46,6 +47,21 @@ namespace DesktopProjectsOrganizerWPF
                 ProjectPanel.Children.Add(g);
             }
 
+
+            OpenText.MouseEnter += OpenText_MouseEnter;
+            OpenText.MouseLeave += OpenText_MouseLeave;
+
+        }
+
+        private void OpenText_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            // set border around icon
+            OpenText.Background = Brushes.Transparent;
+        }
+
+        private void OpenText_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            OpenText.Background = Brushes.Gray;
         }
 
         private void Notifier_HandleMouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
