@@ -1,0 +1,15 @@
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\bin\Debug\DesktopProjectsOrganizerWPF.exe.config
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\bin\Debug\DesktopProjectsOrganizerWPF.exe
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\bin\Debug\DesktopProjectsOrganizerWPF.pdb
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.csproj.AssemblyReference.cache
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\MainWindow.g.cs
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\App.g.cs
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF_MarkupCompile.cache
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF_MarkupCompile.lref
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\MainWindow.baml
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.g.resources
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.Properties.Resources.resources
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.csproj.GenerateResource.cache
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.csproj.CoreCompileInputs.cache
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.exe
+C:\Repos\DesktopProjectOrganizer\DesktopProjectsOrganizerWPF\obj\Debug\DesktopProjectsOrganizerWPF.pdb
