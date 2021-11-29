@@ -1,0 +1,1 @@
+DesktopProjectsOrganizerWPF
