@@ -29,6 +29,7 @@ namespace DesktopProjectsOrganizerWPF
         StackPanel mainStack;
         Grid mainStackGrid;
         ScrollViewer mainStackGridScrollViewer;
+        Brush transBg = (Brush)new BrushConverter().ConvertFrom("#11000000");
 
         public Project(string title, string nodev, string[] linkUrls, string[] linkLables, string[] tasksTodo, string[] tasksDoing, string[] tasksDone)
         {
@@ -44,8 +45,6 @@ namespace DesktopProjectsOrganizerWPF
 
         public Grid GetDrawing()
         {
-
-
             mainGrid = new Grid()
             {
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
@@ -58,7 +57,7 @@ namespace DesktopProjectsOrganizerWPF
             {
                 Width = 250,
                 Height = 30,
-                Fill = Brushes.Black,
+                Fill = transBg,
                 Stroke = Brushes.White,
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalAlignment = System.Windows.VerticalAlignment.Top,
@@ -120,6 +119,7 @@ namespace DesktopProjectsOrganizerWPF
             TextBlock linksTextBlock = new TextBlock()
             {
                 Text = "Links",
+                Width = 60,
                 FontSize = 15,
                 Foreground = Brushes.White,
                 Padding = new Thickness { Top = 15, Right = 15, Left = 15 },
@@ -179,7 +179,7 @@ namespace DesktopProjectsOrganizerWPF
         }
         void OnMouseLeave(object sender, MouseEventArgs e)
         {
-            projectButtonBorder.Fill = Brushes.Black;
+            projectButtonBorder.Fill = transBg;
         }
 
     }

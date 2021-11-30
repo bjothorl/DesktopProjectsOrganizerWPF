@@ -18,6 +18,7 @@ namespace DesktopProjectsOrganizerWPF
         string LinkLabel;
         Grid g;
         Rectangle r;
+        Brush transBg = (Brush)new BrushConverter().ConvertFrom("#11000000");
         public LinkButton(string linkUrl, string linkLabel)
         {
             LinkUrl = linkUrl;
@@ -38,7 +39,7 @@ namespace DesktopProjectsOrganizerWPF
                 Height = 45,
                 Width = 45,
                 Stroke = Brushes.White,
-                Fill = Brushes.Black,
+                Fill = transBg,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
@@ -68,7 +69,7 @@ namespace DesktopProjectsOrganizerWPF
 
         private void OnMouseLeave(object sender, MouseEventArgs e)
         {
-            r.Fill = Brushes.Black;
+            r.Fill = transBg;
         }
 
         private void OnMouseEnter(object sender, MouseEventArgs e)

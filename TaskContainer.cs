@@ -70,7 +70,7 @@ namespace DesktopProjectsOrganizerWPF
                 TextBlock taskTextBlock = new TextBlock()
                 {
                     Text = Tasks[i],
-                    Width = 120,
+                    Width = 180,
                     FontSize = 10,
                     Foreground = Brushes.White,
                     Margin = new Thickness { Left = 8 },
