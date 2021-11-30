@@ -22,12 +22,12 @@ namespace DesktopProjectsOrganizerWPF
         {
             string txt = File.ReadAllText("text.txt");
             txt = txt.Replace("\r", "");
-            string[] projs = txt.Split('?');
+            string[] projs = txt.Split('¤');
             Project[] projects = new Project[projs.Length];
 
             for (int i = 0; i< projs.Length; i++)
             {
-                string[] projParts = projs[i].Split('-');
+                string[] projParts = projs[i].Split('£');
 
                 string title = projParts[0].Replace("\n","");
                 string nodev = projParts[1].Replace("\n","");

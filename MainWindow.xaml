@@ -11,14 +11,15 @@
         Height="1000" Width="1000"
         Title="MainWindow" Background="{x:Null}" AllowsTransparency="True" SizeToContent="Height" Left="0" Top="0">
     <Grid x:Name="Maingrid">
-        <Button x:Name="OpenText" Margin="19,9,955,959">
+        <Rectangle x:Name="OpenTextBorder" Width="34" Height="34" Margin="15,8,951,958" Stroke="#00000000" Fill="#11000000"/>
+        <Button x:Name="OpenText" Margin="19,9,955,959" Click="OpenText_Click">
             <Button.Background>
                 <ImageBrush ImageSource="icon100x100.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <TextBlock Foreground="#FFF7F7F7" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="57,7,0,0">Projects</TextBlock>
-        <Grid x:Name="ProjectGrid" Margin="50,50,0,0" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Grid.RowSpan="10" ShowGridLines="True" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True">
-            <StackPanel x:Name="ProjectPanel">
+        <Grid x:Name="ProjectGrid" Margin="50,50,0,0" Height="900" HorizontalAlignment="Left" VerticalAlignment="Top" Width="900" Grid.RowSpan="10" ShowGridLines="True" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True">
+            <StackPanel x:Name="ProjectPanel" Width="900" Height="900">
 
             </StackPanel>
         </Grid>

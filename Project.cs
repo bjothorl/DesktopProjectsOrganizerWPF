@@ -76,8 +76,8 @@ namespace DesktopProjectsOrganizerWPF
                 Text = Nodev,
                 FontSize = 15,
                 Foreground = Brushes.White,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
-                Margin = new Thickness { Top = 5, Right = 10 },
+                //HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
+                Margin = new Thickness { Top = 5, Left = 140 },
             };
 
             mainStackGridScrollViewer = new ScrollViewer()
@@ -91,7 +91,7 @@ namespace DesktopProjectsOrganizerWPF
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalAlignment = System.Windows.VerticalAlignment.Top,
                 Margin = new Thickness { Left = 20 },
-                Background = Brushes.Black,
+                //Background = Brushes.Black,
             };
 
             Border mainStackGridBorder = new Border()

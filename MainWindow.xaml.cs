@@ -25,6 +25,7 @@ namespace DesktopProjectsOrganizerWPF
     public partial class MainWindow : Window
     {
 
+        Process process;
         Project[] projects;
         TextParser txtPrs = new TextParser();
         NotifyIcon ni = new NotifyIcon();
@@ -39,29 +40,56 @@ namespace DesktopProjectsOrganizerWPF
 
             //parse text and get projects
             projects = txtPrs.GetProjectArray();
-            
+
             // draw projects
-            for (int i = 0; i<projects.Length; i++)
+            DrawProjects();
+
+            OpenText.MouseEnter += OpenText_MouseEnter;
+            OpenText.MouseLeave += OpenText_MouseLeave;
+            OpenTextBorder.MouseEnter += OpenText_MouseEnter;
+            OpenTextBorder.MouseLeave += OpenText_MouseLeave;
+
+            process = new Process();
+            process.EnableRaisingEvents = true;
+            process.Exited += Process_Exited;
+            process.StartInfo.FileName = "notepad";
+            process.StartInfo.Arguments = "text.txt";
+        }
+
+        private void DrawProjects()
+        {
+            ProjectPanel.Children.Clear();
+            projects = txtPrs.GetProjectArray();
+            for (int i = 0; i < projects.Length; i++)
             {
                 Grid g = projects[i].GetDrawing();
                 ProjectPanel.Children.Add(g);
             }
-
-
-            OpenText.MouseEnter += OpenText_MouseEnter;
-            OpenText.MouseLeave += OpenText_MouseLeave;
-
         }
 
         private void OpenText_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             // set border around icon
-            OpenText.Background = Brushes.Transparent;
+            OpenTextBorder.Stroke = Brushes.Transparent;
+        }
+
+        private void OpenText_Click(object sender, RoutedEventArgs e)
+        {
+            process.Start();
+        }
+
+        private void Process_Exited(object sender, EventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                DrawProjects();
+            });
+            
         }
 
         private void OpenText_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            OpenText.Background = Brushes.Gray;
+            OpenTextBorder.Stroke = Brushes.White;
         }
 
         private void Notifier_HandleMouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
