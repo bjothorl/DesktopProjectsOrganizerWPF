@@ -12,6 +12,8 @@
         Title="MainWindow" Background="{x:Null}" AllowsTransparency="True" SizeToContent="Height" Left="0" Top="0">
     <Grid x:Name="Maingrid">
         <Rectangle x:Name="OpenTextBorder" Width="34" Height="34" Margin="15,8,951,958" Stroke="#00000000" Fill="#11000000"/>
+        <TextBlock Margin="183,17,721,963" FontSize="15" Foreground="#FFCDCDCD" HorizontalAlignment="Center" VerticalAlignment="Center">current nodev:</TextBlock>
+        <TextBlock x:Name="nodevTextBlock" Margin="284,12,632,961" FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="1.385,0.744"/>
         <Button x:Name="OpenText" Margin="19,9,955,959" Click="OpenText_Click">
             <Button.Background>
                 <ImageBrush ImageSource="icon100x100.png" Stretch="Uniform"/>

@@ -25,7 +25,9 @@ namespace DesktopProjectsOrganizerWPF
     public partial class MainWindow : Window
     {
 
-        Process process;
+        Process textProcess;
+        Process nodeProcess;
+        System.Timers.Timer nodeTimer;
         Project[] projects;
         TextParser txtPrs = new TextParser();
         NotifyIcon ni = new NotifyIcon();
@@ -49,11 +51,40 @@ namespace DesktopProjectsOrganizerWPF
             OpenTextBorder.MouseEnter += OpenText_MouseEnter;
             OpenTextBorder.MouseLeave += OpenText_MouseLeave;
 
-            process = new Process();
-            process.EnableRaisingEvents = true;
-            process.Exited += Process_Exited;
-            process.StartInfo.FileName = "notepad";
-            process.StartInfo.Arguments = "text.txt";
+            textProcess = new Process();
+            textProcess.EnableRaisingEvents = true;
+            textProcess.Exited += Process_Exited;
+            textProcess.StartInfo.FileName = "notepad";
+            textProcess.StartInfo.CreateNoWindow = true;
+            textProcess.StartInfo.Arguments = "text.txt";
+
+            //check node version
+            nodeTimer = new System.Timers.Timer();
+            nodeTimer.Interval = 1000;
+            nodeTimer.Elapsed += CheckNodeVersion; ;
+            nodeTimer.AutoReset = true;
+            nodeTimer.Enabled = true;
+
+        }
+
+        private void CheckNodeVersion(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            nodeProcess = new Process();
+            nodeProcess.StartInfo.CreateNoWindow = true;
+            nodeProcess.StartInfo.FileName = "node";
+            nodeProcess.StartInfo.Arguments = "-v";
+            nodeProcess.StartInfo.UseShellExecute = false;
+            nodeProcess.StartInfo.RedirectStandardOutput = true;
+
+            nodeProcess.Start();
+            while (!nodeProcess.StandardOutput.EndOfStream)
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    nodevTextBlock.Text = nodeProcess.StandardOutput.ReadLine();
+                });
+                
+            }
         }
 
         private void DrawProjects()
@@ -75,7 +106,7 @@ namespace DesktopProjectsOrganizerWPF
 
         private void OpenText_Click(object sender, RoutedEventArgs e)
         {
-            process.Start();
+            textProcess.Start();
         }
 
         private void Process_Exited(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace DesktopProjectsOrganizerWPF
     {
         string LinkUrl;
         string LinkLabel;
+        Process cmdProcess;
         Grid g;
         Rectangle r;
         Brush transBg = (Brush)new BrushConverter().ConvertFrom("#11000000");
@@ -23,6 +24,12 @@ namespace DesktopProjectsOrganizerWPF
         {
             LinkUrl = linkUrl;
             LinkLabel = linkLabel;
+
+            cmdProcess = new Process();
+            cmdProcess.StartInfo.FileName = "CMD.exe";
+            cmdProcess.StartInfo.Arguments = "/c "+linkUrl;
+            cmdProcess.StartInfo.CreateNoWindow = true;
+            cmdProcess.StartInfo.UseShellExecute = false;
         }
 
         public Grid GetButton()
@@ -79,8 +86,7 @@ namespace DesktopProjectsOrganizerWPF
 
         private void OnMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
-            Process.Start("CMD.exe", "/c "+LinkUrl);
+            cmdProcess.Start();
         }
     }
 }

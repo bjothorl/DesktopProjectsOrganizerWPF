@@ -65,13 +65,14 @@ namespace DesktopProjectsOrganizerWPF
                 Border taskTextBlockBorder = new Border()
                 {
                     BorderBrush = Brushes.White,
-                    BorderThickness = new Thickness { Bottom = 1 }
+                    BorderThickness = new Thickness { Bottom = 1 },
+                    Margin = new Thickness { Right = 15 },
                 };
                 TextBlock taskTextBlock = new TextBlock()
                 {
                     Text = Tasks[i],
-                    Width = 180,
-                    FontSize = 10,
+                    Width = Double.NaN,
+                    FontSize = 11,
                     Foreground = Brushes.White,
                     Margin = new Thickness { Left = 8 },
                 };
