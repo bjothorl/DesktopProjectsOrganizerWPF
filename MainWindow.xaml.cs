@@ -53,7 +53,7 @@ namespace DesktopProjectsOrganizerWPF
             textProcess.Exited += Process_Exited;
             textProcess.StartInfo.FileName = "notepad";
             textProcess.StartInfo.CreateNoWindow = true;
-            textProcess.StartInfo.Arguments = "text.txt";
+            textProcess.StartInfo.Arguments = "projects.json";
 
             //check node version
             nodeTimer = new System.Timers.Timer();

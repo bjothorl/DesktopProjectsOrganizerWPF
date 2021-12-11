@@ -81,7 +81,7 @@ namespace DesktopProjectsOrganizerWPF
 
             mainStackGridScrollViewer = new ScrollViewer()
             {
-                VerticalScrollBarVisibility = ScrollBarVisibility.Visible,
+                VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
                 Margin = new Thickness { Top = 30 },
             };
 
@@ -168,7 +168,7 @@ namespace DesktopProjectsOrganizerWPF
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)   
         {
-            mainGrid.Height = open?35:250;
+            mainGrid.Height = open?35: Double.NaN;
             mainStackGridScrollViewer.Visibility = open ? Visibility.Hidden : Visibility.Visible;
             open = !open;
         }
