@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,10 +14,39 @@ namespace DesktopProjectsOrganizerWPF
 
         // takes .txt file
         // returns arrays
-
         public TextParser()
         {
-            
+        }
+
+        public Project[] GetProjectArrayFromJson()
+        {
+            Project[] projects;
+            try
+            {
+                string tmptxt = File.ReadAllText("projects.json");
+                IList<ProjectJsonType> projectsJson = JsonConvert.DeserializeObject<IList<ProjectJsonType>>(tmptxt);
+                projects = new Project[projectsJson.Count];
+
+                for (int i = 0; i<projects.Length; i++)
+                {
+                    ProjectJsonType p = projectsJson[i];
+                    string[] linkUrls = new string[p.links.Count], linkLabels = new string[p.links.Count];
+                    for (int j = 0; j<p.links.Count; j++)
+                    {
+                        linkLabels[j] = p.links[j][0];
+                        linkUrls[j] = p.links[j][1];
+                    }
+                    projects[i] = new Project(p.project, p.note, linkUrls, linkLabels, p.todo, p.doing, p.done); 
+                }
+            }
+            catch
+            {
+                projects = new Project[1];
+                string[] linkUrls = { }, linkLabels = { }, todo = { }, doing = { }, done = { };
+                projects[1] = new Project("json parse fail", "", linkUrls, linkLabels, todo, doing, done);
+            }
+
+            return projects;
         }
 
         public Project[] GetProjectArray()
@@ -53,5 +83,15 @@ namespace DesktopProjectsOrganizerWPF
 
             return projects;
         }
+    }
+
+    class ProjectJsonType
+    {
+        public string project { get; set; }
+        public string note { get; set; }
+        public IList<IList<string>> links { get; set; }
+        public string[] todo { get; set; }
+        public string[] doing { get; set; }
+        public string[] done { get; set; }
     }
 }

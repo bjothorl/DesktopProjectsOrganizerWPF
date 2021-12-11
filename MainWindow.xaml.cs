@@ -40,9 +40,6 @@ namespace DesktopProjectsOrganizerWPF
             ni.Visible = true;
             ni.MouseDown += new System.Windows.Forms.MouseEventHandler(Notifier_HandleMouseDown);
 
-            //parse text and get projects
-            projects = txtPrs.GetProjectArray();
-
             // draw projects
             DrawProjects();
 
@@ -64,7 +61,6 @@ namespace DesktopProjectsOrganizerWPF
             nodeTimer.Elapsed += CheckNodeVersion; ;
             nodeTimer.AutoReset = true;
             nodeTimer.Enabled = true;
-
         }
 
         private void CheckNodeVersion(object sender, System.Timers.ElapsedEventArgs e)
@@ -90,7 +86,7 @@ namespace DesktopProjectsOrganizerWPF
         private void DrawProjects()
         {
             ProjectPanel.Children.Clear();
-            projects = txtPrs.GetProjectArray();
+            projects = txtPrs.GetProjectArrayFromJson();
             for (int i = 0; i < projects.Length; i++)
             {
                 Grid g = projects[i].GetDrawing();
