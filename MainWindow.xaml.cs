@@ -26,7 +26,7 @@ namespace DesktopProjectsOrganizerWPF
     {
 
         Process textProcess;
-        Process nodeProcess;
+        //Process nodeProcess;
         System.Timers.Timer nodeTimer;
         Project[] projects;
         TextParser txtPrs = new TextParser();
@@ -56,32 +56,32 @@ namespace DesktopProjectsOrganizerWPF
             textProcess.StartInfo.Arguments = "projects.json";
 
             //check node version
-            nodeTimer = new System.Timers.Timer();
-            nodeTimer.Interval = 1000;
-            nodeTimer.Elapsed += CheckNodeVersion; ;
-            nodeTimer.AutoReset = true;
-            nodeTimer.Enabled = true;
+            //nodeTimer = new System.Timers.Timer();
+            //nodeTimer.Interval = 1000;
+            ////nodeTimer.Elapsed += CheckNodeVersion; ;
+            //nodeTimer.AutoReset = true;
+            //nodeTimer.Enabled = true;
         }
 
-        private void CheckNodeVersion(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            nodeProcess = new Process();
-            nodeProcess.StartInfo.CreateNoWindow = true;
-            nodeProcess.StartInfo.FileName = "node";
-            nodeProcess.StartInfo.Arguments = "-v";
-            nodeProcess.StartInfo.UseShellExecute = false;
-            nodeProcess.StartInfo.RedirectStandardOutput = true;
+        //private void CheckNodeVersion(object sender, System.Timers.ElapsedEventArgs e)
+        //{
+        //    nodeProcess = new Process();
+        //    nodeProcess.StartInfo.CreateNoWindow = true;
+        //    nodeProcess.StartInfo.FileName = "node";
+        //    nodeProcess.StartInfo.Arguments = "-v";
+        //    nodeProcess.StartInfo.UseShellExecute = false;
+        //    nodeProcess.StartInfo.RedirectStandardOutput = true;
 
-            nodeProcess.Start();
-            while (!nodeProcess.StandardOutput.EndOfStream)
-            {
-                this.Dispatcher.Invoke(() =>
-                {
-                    nodevTextBlock.Text = nodeProcess.StandardOutput.ReadLine();
-                });
+        //    nodeProcess.Start();
+        //    while (!nodeProcess.StandardOutput.EndOfStream)
+        //    {
+        //        this.Dispatcher.Invoke(() =>
+        //        {
+        //            nodevTextBlock.Text = nodeProcess.StandardOutput.ReadLine();
+        //        });
                 
-            }
-        }
+        //    }
+        //}
 
         private void DrawProjects()
         {
